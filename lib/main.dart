@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:veriar/telas/home.dart';
+import 'package:veriar/telas/login.dart';
 import 'package:veriar/telas/splash.dart';
 
-Color corPrincipal = Colors.purple;
+Color corPrincipal = Color.fromRGBO(155, 32, 78, 1.0);
 
 void main() {
   runApp(MyApp());
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
       routes: {
+        '/login': (context) => Login(),
         '/home': (context) => Home(),
       },
     );

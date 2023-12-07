@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:veriar/main.dart';
+import 'package:veriar/telas/drawer.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -11,63 +13,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        backgroundColor: Colors.white,
-        shadowColor: Colors.white,
-        surfaceTintColor: Colors.white,
-        child: Column(children: [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: SizedBox(
-              width: 80,
-              child: Image.asset('images/logo.png'),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              "INICIO",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              "CONTATO",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              "MAIS",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              "CONFIGURAÇÕES",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              "ÁREA ADMINISTRATIVA",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-          Spacer(),
-          Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: Text(
-              "Too Apps - 2023",
-              style: TextStyle(fontSize: 12),
-            ),
-          ),
-        ]),
-      ),
+      drawer: SafeArea(child: DrawerApp()),
       appBar: AppBar(
         title: Row(
           children: [
@@ -87,35 +33,43 @@ class _HomeState extends State<Home> {
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: [
-            buildCard(Icons.school_outlined, "AULAS", Colors.purple),
+            Container(
+                height: 120,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(18),
+                ),
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(18),
+                    child: Image.network(
+                      "https://i.pinimg.com/564x/58/c6/f6/58c6f655f63a0d707151c43cc7519808.jpg",
+                      fit: BoxFit.cover,
+                    ))),
+            Container(
+              height: 10,
+            ),
+            buildCard(Icons.school_outlined, "AULAS", corPrincipal),
             Row(
               children: [
                 Expanded(
                     child:
-                        buildCard(Icons.newspaper, "NOTICIAS", Colors.purple)),
+                        buildCard(Icons.newspaper, "NOTICIAS", corPrincipal)),
                 Expanded(
-                    child: buildCard(
-                        Icons.comment, "FALE CONOSCO", Colors.purple)),
+                    child:
+                        buildCard(Icons.comment, "FALE CONOSCO", corPrincipal)),
               ],
             ),
             Row(
               children: [
                 Expanded(
-                    child:
-                        buildCard(Icons.newspaper, "NOTICIAS", Colors.purple)),
+                    child: buildCard(Icons.person, "PERFIL", corPrincipal)),
                 Expanded(
-                    child: buildCard(
-                        Icons.comment, "FALE CONOSCO", Colors.purple)),
+                    child: buildCard(Icons.error_sharp, "DADOS", corPrincipal)),
               ],
             ),
             Row(
               children: [
-                Expanded(
-                    child:
-                        buildCard(Icons.newspaper, "NOTICIAS", Colors.purple)),
-                Expanded(
-                    child: buildCard(
-                        Icons.comment, "FALE CONOSCO", Colors.purple)),
+                Expanded(child: buildCard(Icons.feed, "CENTRAL", corPrincipal)),
+                Expanded(child: buildCard(Icons.add, "MAIS", corPrincipal)),
               ],
             ),
           ],
