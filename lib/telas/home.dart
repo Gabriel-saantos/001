@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:veriar/main.dart';
 import 'package:veriar/telas/drawer.dart';
@@ -47,12 +49,20 @@ class _HomeState extends State<Home> {
             Container(
               height: 10,
             ),
-            buildCard(Icons.school_outlined, "AULAS", corPrincipal),
+            GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushNamed('/aulas');
+                },
+                child: buildCard(Icons.school_outlined, "AULAS", corPrincipal)),
             Row(
               children: [
                 Expanded(
-                    child:
-                        buildCard(Icons.newspaper, "NOTICIAS", corPrincipal)),
+                    child: GestureDetector(
+                        onTap: () {
+                          //   Navigator.of(context).pushNamed('/news');
+                        },
+                        child: buildCard(
+                            Icons.newspaper, "NOTICIAS", corPrincipal))),
                 Expanded(
                     child:
                         buildCard(Icons.comment, "FALE CONOSCO", corPrincipal)),
@@ -62,13 +72,13 @@ class _HomeState extends State<Home> {
               children: [
                 Expanded(
                     child: buildCard(Icons.person, "PERFIL", corPrincipal)),
+                Expanded(child: buildCard(Icons.feed, "CENTRAL", corPrincipal)),
                 Expanded(
                     child: buildCard(Icons.error_sharp, "DADOS", corPrincipal)),
               ],
             ),
             Row(
               children: [
-                Expanded(child: buildCard(Icons.feed, "CENTRAL", corPrincipal)),
                 Expanded(child: buildCard(Icons.add, "MAIS", corPrincipal)),
               ],
             ),
@@ -78,7 +88,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget buildCard(IconData icon, String label, Color color) {
+  Widget buildCard(IconData icon, String text, Color color) {
     return Card(
       color: color,
       child: Padding(
@@ -87,7 +97,7 @@ class _HomeState extends State<Home> {
           children: [
             Icon(icon, color: Colors.white),
             SizedBox(height: 5),
-            Text(label, style: TextStyle(color: Colors.white)),
+            Text(text, style: TextStyle(color: Colors.white)),
             SizedBox(height: 2),
           ],
         ),

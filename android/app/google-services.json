@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "815613545298",
+    "project_id": "veriar",
+    "storage_bucket": "veriar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:815613545298:android:70246fa8164356b118088b",
+        "android_client_info": {
+          "package_name": "apps.too.veriar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBj8zLPgARhHaHY3NhG0rDcCizlHdCkJjE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
